@@ -23,7 +23,7 @@ set_common_properties(rehlds)
 target_link_libraries(rehlds PRIVATE
 	$<$<PLATFORM_ID:Windows>:ws2_32>
 	$<$<PLATFORM_ID:Windows>:psapi>
-	$<$<PLATFORM_ID:Windows:libacof32>
+	$<$<PLATFORM_ID:Windows>:libacof32>
 	$<$<PLATFORM_ID:Linux>:dl>
 	$<$<PLATFORM_ID:Linux>:rt>
 	$<$<PLATFORM_ID:Linux>:m>
