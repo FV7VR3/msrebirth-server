@@ -63,6 +63,5 @@ set(ALL_FILES
 	${Src_Files}
 )
 
-target_precompile_headers(filesystem PRIVATE 
-	"./src/precompiled.h")
+target_precompile_headers(filesystem PRIVATE "./src/precompiled.h")
 target_sources(filesystem PRIVATE ${ALL_FILES})
