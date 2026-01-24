@@ -12,8 +12,8 @@ if (WIN32)
 else()
 	set_target_properties(steam_api PROPERTIES IMPORTED_IMPLIB "${BASEDIR}/lib/public/linux32/libsteam_api.so")
 
-	add_library(aelf32 SHARED IMPORTED)
-	set_target_properties(aelf32 PROPERTIES IMPORTED_IMPLIB "${BASEDIR}/lib/public/linux32/libaelf32.a")
+	# add_library(aelf32 SHARED IMPORTED)
+	# set_target_properties(aelf32 PROPERTIES IMPORTED_IMPLIB "${BASEDIR}/lib/public/linux32/libaelf32.a")
 endif()
 
 add_dependencies(rehlds
@@ -29,7 +29,7 @@ target_link_libraries(rehlds PRIVATE
 	$<$<PLATFORM_ID:Linux>:dl>
 	$<$<PLATFORM_ID:Linux>:rt>
 	$<$<PLATFORM_ID:Linux>:m>
-	$<$<PLATFORM_ID:Linux>:aelf32>
+	# $<$<PLATFORM_ID:Linux>:aelf32>
 	steam_api
 	bzip2
 )
