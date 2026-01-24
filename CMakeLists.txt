@@ -54,6 +54,15 @@ function(set_common_properties TARGET_NAME)
 			_strdup=strdup
 			_vsnprintf=vsnprintf
 			_unlink=unlink)
+		
+		# Produce code optimized for the most common IA32/AMD64/EM64T processors.
+		# As new processors are deployed in the marketplace, the behavior of this option will change.
+		set_target_properties(${TARGET_NAME} PROPERTIES COMPILE_FLAGS "-mtune=generic -msse3\
+			-fpermissive -fno-sized-deallocation\
+			-Wno-unknown-pragmas -Wno-invalid-offsetof\
+			-Wno-unused-variable -Wno-unused-result -Wno-unused-function -Wno-delete-non-virtual-dtor\
+			-Wno-write-strings -Wno-format\
+			-Wno-sign-compare -Wno-strict-aliasing -Wno-ignored-attributes")
 	endif(UNIX)
 
 	# Disable C++ exceptions, which is enabled by default with CMake?

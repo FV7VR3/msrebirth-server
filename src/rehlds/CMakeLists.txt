@@ -1,3 +1,4 @@
+add_library(rehlds SHARED)
 add_library(steam_api SHARED IMPORTED)
 
 target_include_directories(steam_api INTERFACE ${BASEDIR}/src/public/steam)
@@ -11,8 +12,6 @@ if (WIN32)
 else()
 	set_target_properties(steam_api PROPERTIES IMPORTED_IMPLIB "${BASEDIR}/lib/public/linux/libsteam_api.so")
 endif()
-
-add_library(rehlds SHARED)
 
 add_dependencies(rehlds
 	bzip2
