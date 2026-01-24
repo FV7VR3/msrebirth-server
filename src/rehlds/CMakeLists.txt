@@ -13,7 +13,7 @@ else()
 	set_target_properties(steam_api PROPERTIES IMPORTED_IMPLIB "${BASEDIR}/lib/public/linux32/libsteam_api.so")
 
 	add_library(aelf32 SHARED IMPORTED)
-	set_target_properties(aelf32 PROPERTIES IMPORTED_IMPLIB "${BASEDIR}/lib/public/linux32/libaelf32.lib")
+	set_target_properties(aelf32 PROPERTIES IMPORTED_IMPLIB "${BASEDIR}/lib/public/linux32/libaelf32.a")
 endif()
 
 add_dependencies(rehlds
@@ -436,8 +436,7 @@ set(ALL_FILES
 	${Public_tier0}
 )
 
-target_precompile_headers(rehlds PRIVATE 
-	"./precompiled.h")
+target_precompile_headers(rehlds PRIVATE "./precompiled.h")
 target_sources(rehlds PRIVATE ${ALL_FILES})
 
 # Exclude textconsole files from using precompiled headers due to platform-specific conflicts
